@@ -86,12 +86,13 @@ function HorizontalProducts({
                     >
                       {
                         response?.products?.map((product: any, index: number) => (
-                          <ProductCart
+                          <ProductCard
                             key={index}
                             name={product.name}
                             category={"kategori"}
                             price={Math.ceil(Math.random() * (1000000 - 200000)).toLocaleString()}
                             imgUrl={product.image_file}
+                            // discount={20}
                             setModalData={setModalData}
                           />
                         ))
@@ -113,16 +114,17 @@ function HorizontalProducts({
   )
 }
 
-function ProductCart({
+function ProductCard({
   name,
   category,
   price,
+  discount,
   imgUrl,
   setModalData
-}: {name: string, category: string, price: string, imgUrl: string, setModalData: Function}) {
+}: {name: string, category: string, price: string, discount?: number, imgUrl: string, setModalData: Function}) {
   return (
     <button
-      className="text-left"
+      className="text-left font-normal"
       onClick={() => setModalData({ name, imgUrl })}
     >
       <article className="flex flex-col m-0 sm:mx-2 text-sm">
@@ -131,13 +133,37 @@ function ProductCart({
           src={imgUrl}
           alt={`${name} thumbnail`}
         />
-        <small className="mt-4">
+        {
+          discount? (
+            <div className="flex justify-end absolute sm:relative top-0 right-0">
+              <div>
+                <div className="bg-red-500 flex h-12 justify-center w-8 p-2">
+                  <span className="text-xs text-white">
+                    Off <br/>
+                    {discount}%
+                  </span>
+                </div>
+                <div
+                  className="triangle-down"
+                  style={{
+                    width: 0,
+                    height: 0,
+                    borderLeft: "1rem solid transparent",
+                    borderRight: "1rem solid transparent",
+                    borderTop: "1rem solid #f56565",
+                  }}
+                ></div>
+              </div>
+            </div>
+          ): null
+        }
+        <small className="mt-4 text-gray-500">
           {category}
         </small>
-        <span>
+        <span className="font-semibold text-sm">
           {name}
         </span>
-        <span>
+        <span className="font-semibold text-sm">
           IDR {price}
         </span>
       </article>

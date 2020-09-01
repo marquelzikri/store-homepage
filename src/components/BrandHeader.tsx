@@ -9,7 +9,7 @@ function BrandHeader() {
         <ul className="inline-flex flex-row-reverse sm:flex-row order-3 sm:order-1">
           <li className="flex flex-col justify-center">
             <div className="relative">
-              <select className="block appearance-none border border-gray-400 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+              <select className="block appearance-none border bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
                 <option className="">IDR</option>
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">

@@ -50,7 +50,7 @@ function Banner() {
           {
             response?.banners?.map((banner: any, index: number) => (
               <div key={index}>
-                <img alt={banner?.title} src={banner?.image_file} />
+                <img className="object-cover" alt={banner?.title} src={banner?.image_file} />
               </div>
             ))
           }

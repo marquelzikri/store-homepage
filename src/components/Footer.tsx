@@ -17,7 +17,7 @@ function NavSection() {
     <section className="flex justify-center w-full mt-16 sm:my-16 text-gray-700">
       <div className="flex flex-col sm:flex-row justify-between max-w-5xl w-full">
         <article className="w-full sm:w-1/3 px-4 sm:mt-12 sm:m-0 sm:p-0 order-2 sm:order-1">
-          <img className="w-48" src={Logo} alt="Brand" />
+          <img className="w-48 object-cover" src={Logo} alt="Brand" />
           <p className="text-sm my-4">
             Mavelin is a Wordpress E-Commerce theme focused to collecting, grouping your content Then selling your
             stuffs. It is perfect for small-to-high traffic e-commerce bussiness site.
@@ -176,12 +176,12 @@ function NavSection() {
 function ImagesSection() {
   return (
     <section className="flex justify-center w-full overflow-y-scroll sm:overflow-y-hidden">
-      <img className="w-1/2 sm:w-1/6" src="https://picsum.photos/400" alt="Footer thumbnail item" />
-      <img className="w-1/2 sm:w-1/6" src="https://picsum.photos/400" alt="Footer thumbnail item" />
-      <img className="w-1/2 sm:w-1/6" src="https://picsum.photos/400" alt="Footer thumbnail item" />
-      <img className="w-1/2 sm:w-1/6" src="https://picsum.photos/400" alt="Footer thumbnail item" />
-      <img className="w-1/2 sm:w-1/6" src="https://picsum.photos/400" alt="Footer thumbnail item" />
-      <img className="w-1/2 sm:w-1/6" src="https://picsum.photos/400" alt="Footer thumbnail item" />
+      <img className="w-1/2 sm:w-1/6 object-cover" src="https://picsum.photos/400" alt="Footer thumbnail item" />
+      <img className="w-1/2 sm:w-1/6 object-cover" src="https://picsum.photos/400" alt="Footer thumbnail item" />
+      <img className="w-1/2 sm:w-1/6 object-cover" src="https://picsum.photos/400" alt="Footer thumbnail item" />
+      <img className="w-1/2 sm:w-1/6 object-cover" src="https://picsum.photos/400" alt="Footer thumbnail item" />
+      <img className="w-1/2 sm:w-1/6 object-cover" src="https://picsum.photos/400" alt="Footer thumbnail item" />
+      <img className="w-1/2 sm:w-1/6 object-cover" src="https://picsum.photos/400" alt="Footer thumbnail item" />
     </section>
   );
 }

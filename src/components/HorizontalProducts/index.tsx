@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Carousel from 'react-multi-carousel'
 
-import "react-multi-carousel/lib/styles.css"
-import "./styles.css"
+import 'react-multi-carousel/lib/styles.css'
+import './styles.css'
 
 import useFetch from '../../utils/useFetch'
+import classNames from 'classnames'
 
 function HorizontalProducts({
   title,
   url
 }: { title: string, url: string }) {
-  const [modalData, setModalData] = React.useState<{name: string, imgUrl: string} | null>(null)
+  const [modalData, setModalData] = useState<{name: string, imgUrl: string} | null>(null)
+  const [hasCarouselRendered, setHasCarouselRendered] = useState(false)
 
   let [
     response,
@@ -25,7 +27,7 @@ function HorizontalProducts({
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 2
+      items: 4
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
@@ -62,13 +64,32 @@ function HorizontalProducts({
     hasError = null
   }
 
+  useEffect(() => {
+    if (response?.products) {
+      setTimeout(() => {
+        setHasCarouselRendered(true)
+      }, 100)
+    }
+  }, [response])
+
   return (
     <>
       <section className="relative flex justify-center w-screen mt-16">
-        <div className="w-full max-w-5xl pt-8 px-4 sm:px-0 relative">
-          <h1 className="absolute top-0 text-sm text-gray-700 font-black uppercase">
-            {title}
-          </h1>
+        <div
+          className={classNames(
+            "w-full max-w-6xl pt-8 px-4 sm:px-0 relative",
+            {
+              "flex justify-center": hasCarouselRendered
+            }
+          )}
+        >
+          <div className="absolute flex h-8 justify-center left-0 top-0 w-full">
+            <div className="w-full max-w-5xl pl-4 sm:px-0">
+              <h1 className="text-sm text-gray-700 font-black uppercase">
+                {title}
+              </h1>
+            </div>
+          </div>
           {
             loading?
               <span>Loading...</span>: (
@@ -76,13 +97,13 @@ function HorizontalProducts({
                   <span>Error occured.</span>: (
                     <Carousel
                       partialVisbile={false}
-                      itemClass="image-item"
                       responsive={responsive}
                       infinite
                       showDots
                       renderDotsOutside
-                      // customLeftArrow={<CustomLeftArrow />}
-                      // customRightArrow={<CustomRightArrow />}
+                      removeArrowOnDeviceType={["tablet", "mobile"]}
+                      customLeftArrow={<CustomLeftArrow />}
+                      customRightArrow={<CustomRightArrow />}
                     >
                       {
                         response?.products?.map((product: any, index: number) => (

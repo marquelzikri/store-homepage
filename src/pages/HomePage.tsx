@@ -43,7 +43,7 @@ const HomePage = () => {
       />
 
       <section className="flex justify-center w-screen mt-6">
-        <div className="w-full max-w-5xl px-4 sm:p-0">
+        <div className="w-full max-w-5xl px-4 xl:p-0">
           <hr className="mt-12" />
 
           <section className="my-12">
@@ -58,6 +58,7 @@ const HomePage = () => {
           </section>
         </div>
       </section>
+
       <Footer />
     </div>
   )

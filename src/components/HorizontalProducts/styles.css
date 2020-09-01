@@ -2,6 +2,8 @@
   top: 8px;
   bottom: unset;
   justify-content: flex-end;
+  max-width: 72rem;
+  padding-right: 4rem;
 }
 
 .react-multi-carousel-dot {
@@ -21,6 +23,14 @@
   width: 8px;
   height: 8px;
   background: black;
+}
+
+.react-multi-carousel-list {
+  max-width: 64rem;
+}
+
+.react-multi-carousel-list, .react-multi-carousel-track {
+  position: unset;
 }
 
 .custom-right-arrow {
@@ -57,5 +67,6 @@
 @media only screen and (max-width: 600px) {
   .react-multi-carousel-dot-list {
     right: 1rem;
+    padding: 0;
   }
 }

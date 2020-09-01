@@ -4,7 +4,7 @@ import { Carousel } from 'react-responsive-carousel'
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
-import NextArrow from '../assets/img/chevron-arrow-up.svg'
+import Arrow from '../assets/img/chevron-arrow-up.svg'
 import useFetch from '../utils/useFetch'
 
 function Banner() {
@@ -87,7 +87,7 @@ function ChevronArrow({
               "rotate-90": arrowType === "next"
             }
           )}
-          src={NextArrow}
+          src={Arrow}
           alt={`Arrow ${arrowType}`}
         />
       </div>

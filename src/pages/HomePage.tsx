@@ -1,13 +1,15 @@
-import React from 'react';
+import React from 'react'
 
-import "typeface-roboto";
+import "typeface-roboto"
 
-import NavHeader from '../components/NavHeader';
-import BrandHeader from '../components/BrandHeader';
+import NavHeader from '../components/NavHeader'
+import BrandHeader from '../components/BrandHeader'
+import Footer from '../components/Footer'
 
 const HomePage = () => {
   return (
     <div
+      className="overflow-x-hidden"
       style={{
         fontFamily: "Roboto"
       }}
@@ -15,8 +17,8 @@ const HomePage = () => {
       <NavHeader />
       <BrandHeader />
       <section className="flex justify-center w-screen">
-        <div className="w-full max-w-5xl">
-          <section className="gap-6 grid grid-cols-3">
+        <div className="w-full max-w-5xl px-4 sm:p-0">
+          <section className="gap-6 grid grid-rows-3 sm:grid-rows-none sm:grid-cols-3">
             <img src="https://picsum.photos/400" alt="Lorem Picsum" />
             <img src="https://picsum.photos/400" alt="Lorem Picsum" />
             <img src="https://picsum.photos/400" alt="Lorem Picsum" />
@@ -36,8 +38,9 @@ const HomePage = () => {
           </section>
         </div>
       </section>
+      <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default HomePage;
+export default HomePage

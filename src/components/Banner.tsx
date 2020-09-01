@@ -14,13 +14,21 @@ function Banner() {
     hasError
   ] = useFetch({ url: "https://cors-anywhere.herokuapp.com/frontend-test-37/banners.json" })
 
-  response = {
-    banners: [
-      {
-        title: "abc",
-        image_file: "https://picsum.photos/1000/500"
-      }
-    ]
+  if (hasError) {
+    response = {
+      banners: [
+        {
+          title: "abc",
+          image_file: "https://picsum.photos/1000/500"
+        },
+        {
+          title: "abc2",
+          image_file: "https://picsum.photos/1001/500"
+        }
+      ]
+    }
+
+    hasError = null
   }
 
   return (
@@ -30,31 +38,32 @@ function Banner() {
           loading?
             <span>Loading...</span>: (
               hasError?
-                <span>Error occured.</span>: <></>
+                <span>Error occured.</span>: (
+                  <Carousel
+                    autoPlay
+                    showArrows
+                    showIndicators={false}
+                    showStatus={false}
+                    showThumbs={false}
+                    infiniteLoop
+                    renderArrowPrev={(clickHandler: () => void): React.ReactNode => (
+                      <ChevronArrow arrowType="prev" clickHandler={clickHandler} />
+                    )}
+                    renderArrowNext={(clickHandler: () => void): React.ReactNode => (
+                      <ChevronArrow arrowType="next" clickHandler={clickHandler} />
+                    )}
+                  >
+                    {
+                      response?.banners?.map((banner: any, index: number) => (
+                        <div key={index}>
+                          <img className="object-cover" alt={banner?.title} src={banner?.image_file} />
+                        </div>
+                      ))
+                    }
+                  </Carousel>
+                )
             )
         }
-        <Carousel
-          autoPlay
-          showArrows
-          showIndicators={false}
-          showStatus={false}
-          showThumbs={false}
-          infiniteLoop
-          renderArrowPrev={(clickHandler: () => void): React.ReactNode => (
-            <ChevronArrow arrowType="prev" clickHandler={clickHandler} />
-          )}
-          renderArrowNext={(clickHandler: () => void): React.ReactNode => (
-            <ChevronArrow arrowType="next" clickHandler={clickHandler} />
-          )}
-        >
-          {
-            response?.banners?.map((banner: any, index: number) => (
-              <div key={index}>
-                <img className="object-cover" alt={banner?.title} src={banner?.image_file} />
-              </div>
-            ))
-          }
-        </Carousel>
       </div>
     </section>
   )

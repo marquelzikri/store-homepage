@@ -33,29 +33,33 @@ function HorizontalProducts({
     }
   }
 
-  response = {
-    products: [
-      {
-        "name": "Men Product 1",
-        "image_file": "https://images.unsplash.com/photo-1549989476-69a92fa57c36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-      },
-      {
-        "name": "Men Product 2",
-        "image_file": "https://images.unsplash.com/photo-1550133730-695473e544be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-      },
-      {
-        "name": "Men Product 3",
-        "image_file": "https://images.unsplash.com/photo-1550167164-1b67c2be3973?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-      },
-      {
-        "name": "Men Product 4",
-        "image_file": "https://images.unsplash.com/photo-1550223640-23097fc71cb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-      },
-      {
-        "name": "Men Product 5",
-        "image_file": "https://images.unsplash.com/photo-1550353175-a3611868086b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-      }
-    ]
+  if (hasError) {
+    response = {
+      products: [
+        {
+          "name": "Men Product 1",
+          "image_file": "https://images.unsplash.com/photo-1549989476-69a92fa57c36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+        },
+        {
+          "name": "Men Product 2",
+          "image_file": "https://images.unsplash.com/photo-1550133730-695473e544be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+        },
+        {
+          "name": "Men Product 3",
+          "image_file": "https://images.unsplash.com/photo-1550167164-1b67c2be3973?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+        },
+        {
+          "name": "Men Product 4",
+          "image_file": "https://images.unsplash.com/photo-1550223640-23097fc71cb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+        },
+        {
+          "name": "Men Product 5",
+          "image_file": "https://images.unsplash.com/photo-1550353175-a3611868086b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+        }
+      ]
+    }
+
+    hasError = null
   }
 
   return (
@@ -69,32 +73,33 @@ function HorizontalProducts({
             loading?
               <span>Loading...</span>: (
                 hasError?
-                  <span>Error occured.</span>: <></>
+                  <span>Error occured.</span>: (
+                    <Carousel
+                      partialVisbile={false}
+                      itemClass="image-item"
+                      responsive={responsive}
+                      infinite
+                      showDots
+                      renderDotsOutside
+                      // customLeftArrow={<CustomLeftArrow />}
+                      // customRightArrow={<CustomRightArrow />}
+                    >
+                      {
+                        response?.products?.map((product: any, index: number) => (
+                          <ProductCart
+                            key={index}
+                            name={product.name}
+                            category={"kategori"}
+                            price={Math.ceil(Math.random() * (1000000 - 200000)).toLocaleString()}
+                            imgUrl={product.image_file}
+                            setModalData={setModalData}
+                          />
+                        ))
+                      }
+                    </Carousel>
+                  )
               )
           }
-          <Carousel
-            partialVisbile={false}
-            itemClass="image-item"
-            responsive={responsive}
-            infinite
-            showDots
-            renderDotsOutside
-            // customLeftArrow={<CustomLeftArrow />}
-            // customRightArrow={<CustomRightArrow />}
-          >
-            {
-              response?.products?.map((product: any, index: number) => (
-                <ProductCart
-                  key={index}
-                  name={product.name}
-                  category={"kategori"}
-                  price={Math.ceil(Math.random() * (1000000 - 200000)).toLocaleString()}
-                  imgUrl={product.image_file}
-                  setModalData={setModalData}
-                />
-              ))
-            }
-          </Carousel>
         </div>
         {modalData ? (
           <ProductModal

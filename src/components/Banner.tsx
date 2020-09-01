@@ -5,15 +5,16 @@ import { Carousel } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
 import NextArrow from '../assets/img/chevron-arrow-up.svg'
-import useFetch from '../utils/useFetch';
+import useFetch from '../utils/useFetch'
 
 function Banner() {
-  // const [
-  //   response,
-  //   loading,
-  //   hasError
-  // ] = useFetch({ url: "https://cors-anywhere.herokuapp.com/frontend-test-37/banners.json" })
-  let loading, hasError, response = {
+  let [
+    response,
+    loading,
+    hasError
+  ] = useFetch({ url: "https://cors-anywhere.herokuapp.com/frontend-test-37/banners.json" })
+
+  response = {
     banners: [
       {
         title: "abc",
@@ -47,9 +48,9 @@ function Banner() {
           )}
         >
           {
-            response?.banners?.map((data: any) => (
-              <div>
-                <img alt={data?.title} src={data?.image_file} />
+            response?.banners?.map((banner: any, index: number) => (
+              <div key={index}>
+                <img alt={banner?.title} src={banner?.image_file} />
               </div>
             ))
           }

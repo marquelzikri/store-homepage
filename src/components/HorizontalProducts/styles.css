@@ -1,0 +1,40 @@
+.react-multi-carousel-dot-list {
+  top: 8px;
+  bottom: unset;
+  justify-content: flex-end;
+}
+
+.react-multi-carousel-dot {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.react-multi-carousel-dot button {
+  border: none;
+  width: 6px;
+  height: 6px;
+  background: #4a5568;
+}
+
+.react-multi-carousel-dot--active button {
+  width: 8px;
+  height: 8px;
+  background: black;
+}
+
+.react-multi-carousel-item--active {
+  /* width: 100%; */
+  /* margin-right: 0;
+  background: black; */
+}
+
+.react-multi-carousel-item {
+  /* width: 25% !important; */
+}
+
+@media only screen and (max-width: 600px) {
+  .react-multi-carousel-dot-list {
+    right: 1rem;
+  }
+}

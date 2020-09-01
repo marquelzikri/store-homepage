@@ -1,11 +1,10 @@
 import React from 'react'
 
-import "typeface-roboto"
-
 import NavHeader from '../components/NavHeader'
 import BrandHeader from '../components/BrandHeader'
 import Footer from '../components/Footer'
 import Banner from '../components/Banner'
+import HorizontalProducts from '../components/HorizontalProducts/'
 
 const HomePage = () => {
   return (
@@ -18,13 +17,33 @@ const HomePage = () => {
       <NavHeader />
       <BrandHeader />
       <Banner />
+
+
+      <section className="flex justify-center w-screen mt-6">
         <div className="w-full max-w-5xl px-4 sm:p-0">
           <section className="gap-6 grid grid-rows-3 sm:grid-rows-none sm:grid-cols-3">
             <img src="https://picsum.photos/400" alt="Lorem Picsum" />
             <img src="https://picsum.photos/400" alt="Lorem Picsum" />
             <img src="https://picsum.photos/400" alt="Lorem Picsum" />
           </section>
+        </div>
+      </section>
 
+      <HorizontalProducts
+        title="Popular in Women"
+        url="https://files.sirclocdn.xyz/frontend-test-37/men-products.json"
+      />
+      <HorizontalProducts
+        title="Popular in Men"
+        url="https://files.sirclocdn.xyz/frontend-test-37/women-products.json"
+      />
+      <HorizontalProducts
+        title="Popular in Accessories"
+        url="https://files.sirclocdn.xyz/frontend-test-37/accessories-products.json"
+      />
+
+      <section className="flex justify-center w-screen mt-6">
+        <div className="w-full max-w-5xl px-4 sm:p-0">
           <hr className="mt-12" />
 
           <section className="my-12">

@@ -15,7 +15,7 @@ function Footer() {
 function NavSection() {
   return (
     <section className="flex justify-center w-full mt-16 sm:my-16 text-gray-700">
-      <div className="flex flex-col sm:flex-row justify-between max-w-5xl w-full">
+      <div className="flex flex-col sm:flex-row justify-between max-w-5xl w-full mx-4 xl:mx-0">
         <article className="w-full sm:w-1/3 px-4 sm:mt-12 sm:m-0 sm:p-0 order-2 sm:order-1">
           <img className="w-48 object-cover" src={Logo} alt="Brand" />
           <p className="text-sm my-4">
@@ -194,7 +194,7 @@ function SocialSection() {
         background: "#F4F4F4"
       }}
     >
-      <section className="flex flex-col sm:flex-row justify-between w-full max-w-3xl">
+      <section className="flex flex-col sm:flex-row justify-between w-full max-w-3xl mx-4 xl:mx-0">
         <section className="flex justify-center text-gray-700 order-2 sm:order-1 mt-8 sm:m-0">
           <button className="flex flex-col justify-center fill-current h-full mx-2">
             <FacebookIcon />

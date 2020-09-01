@@ -3,6 +3,8 @@ import React from 'react';
 import "typeface-roboto";
 
 import NavHeader from '../components/NavHeader';
+import BrandHeader from '../components/BrandHeader';
+
 const HomePage = () => {
   return (
     <div
@@ -11,6 +13,7 @@ const HomePage = () => {
       }}
     >
       <NavHeader />
+      <BrandHeader />
       <section className="flex justify-center w-screen">
         <div className="w-full max-w-5xl">
           <section className="gap-6 grid grid-cols-3">

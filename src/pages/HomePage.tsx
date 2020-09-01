@@ -5,6 +5,7 @@ import "typeface-roboto"
 import NavHeader from '../components/NavHeader'
 import BrandHeader from '../components/BrandHeader'
 import Footer from '../components/Footer'
+import Banner from '../components/Banner'
 
 const HomePage = () => {
   return (
@@ -16,7 +17,7 @@ const HomePage = () => {
     >
       <NavHeader />
       <BrandHeader />
-      <section className="flex justify-center w-screen">
+      <Banner />
         <div className="w-full max-w-5xl px-4 sm:p-0">
           <section className="gap-6 grid grid-rows-3 sm:grid-rows-none sm:grid-cols-3">
             <img src="https://picsum.photos/400" alt="Lorem Picsum" />

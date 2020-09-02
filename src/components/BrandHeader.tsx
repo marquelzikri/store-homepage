@@ -29,8 +29,8 @@ function BrandHeader() {
             </button>
           </li>
         </ul>
-        <div className="order-1 sm:order-2 flex justify-center">
-          <img className="w-1/4 sm:w-full object-cover" src={Logo} alt="Brand"/>
+        <div className="h-10 sm:h-full order-1 sm:order-2 flex justify-center">
+          <img className="object-contain" src={Logo} alt="Brand"/>
         </div>
         <ul className="inline-flex justify-end order-2 sm:order-3 my-4 sm:m-0 text-gray-700">
           <li className="flex flex-col justify-center mr-6 uppercase">Log in / Register</li>
